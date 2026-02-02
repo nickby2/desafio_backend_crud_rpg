@@ -11,7 +11,6 @@ class Spell(BaseModel):
     descricao: str
     execucao: str
     alcance: str
-    alvo: str
     duracao: str
 
     material: bool = False
@@ -23,5 +22,5 @@ class Spell(BaseModel):
     @validator("custo em ouro", always=True)
     def validar_custo_material(cls, v, values):
         if values.get("exige_material") and v is None:
-            raise ValueError("Magia com componente material exige custo_em_ouro")
+            raise ValueError("Magia com componente material exige custo em ouro")
         return v
